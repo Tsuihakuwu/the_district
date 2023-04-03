@@ -1,3 +1,3 @@
 0.01 - Création BDD
 
-Init BDD ave fichier SQL fournis
+Init BDD ave fichier SQL fournis via HeidiSQL
