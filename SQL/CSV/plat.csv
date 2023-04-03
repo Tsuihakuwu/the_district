@@ -1,0 +1,6 @@
+`id`, `libelle`, `description`, `prix`, `image`, `id_categorie`, `active`
+ 4, "District Burger", "Burger composé d’un bun’s du boulanger, deux steaks de 80g (origine française), de deux tranches poitrine de porc fumée, de deux tranches cheddar affiné, salade et oignons confits. .", "4.00", "hamburger.jpg", 5, "Yes"
+ 5, "Pizza Bianca", "Une pizza fine et croustillante garnie de crème mascarpone légèrement citronnée et de tranches de saumon fumé, le tout relevé de baies roses et de basilic frais.", "9.00", "pizza-salmon.png", 4, "Yes"
+ 9, "Buffalo Chicken Wrap", "Du bon filet de poulet mariné dans notre spécialité sucrée & épicée, enveloppé dans une tortilla blanche douce faite maison.", "5.00", "buffalo-chicken.webp", 9, "Yes"
+10, "Cheeseburger", "Burger composé d’un bun’s du boulanger, de salade, oignons rouges, pickles, oignon confit, tomate, d’un steak d’origine Française, d’une tranche de cheddar affiné, et de notre sauce maison.", "4.00", "cheesburger.jpg", 5, "Yes"
+12, "Spaghetti aux légumes", "Un plat de spaghetti au pesto de basilic et légumes poêlés, très parfumé et rapide", "10.00", "spaghetti-legumes.jpg", 10, "Yes"
