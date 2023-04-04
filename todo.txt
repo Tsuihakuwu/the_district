@@ -2,4 +2,9 @@
 
 Init BDD ave fichier SQL fournis via HeidiSQL
 
-* Remettre en forme les fichiers CSV (" ' et espaces)
+0.02 - Update BDD + Création pages de base
+
+Mise en forme des fichiers CSV (" ' et espaces)
+Correction du fichier structure SQL avec ajout des clés étrangères
+Ecriture des requêtes SQL dans the_district_query
+Création des pages structure pour visuel mobile
