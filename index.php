@@ -1,18 +1,19 @@
 <?php
 
     include('header.php');
-    
     include('nav.php');
     
     //Liste des pages
-    if (isset($_POST["page"])){
-        switch($_POST['page']){
-            case 'tmp':
-                include('tmp.php');
+    if(isset($_REQUEST["page"])){
+        switch($_REQUEST["page"]){
+            case "tmp":
+                include("tmp.php");
                 break;
         }
     }
-    
-    include('footer.php');
+    else {
+        include("content/user/accueil.php");
+    }
 
+    include('footer.php');
 ?>

@@ -1,3 +1,5 @@
+** Media query breakpoint 360x800 **
+
 0.01 - Création BDD
 
 Init BDD ave fichier SQL fournis via HeidiSQL
@@ -8,3 +10,11 @@ Mise en forme des fichiers CSV (" ' et espaces)
 Correction du fichier structure SQL avec ajout des clés étrangères
 Ecriture des requêtes SQL dans the_district_query
 Création des pages structure pour visuel mobile
+
+0.03 - Création footer nav et header
+
+Ecriture des fichiers php header nav et footer
+
+*faire la mise en forme de la liste des categories
+*voir pour adapter le trlighter avec le theme rose degolasse
+
