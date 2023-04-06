@@ -15,6 +15,11 @@ Création des pages structure pour visuel mobile
 
 Ecriture des fichiers php header nav et footer
 
-*faire la mise en forme de la liste des categories
-*voir pour adapter le trlighter avec le theme rose degolasse
+0.04 - Contenu page accueil
 
+Mise en forme de la liste des categories
+Downgrade Bootstrap 5.1.3
+Mise en forme CSS
+Création fonction pour random 3 plats pour affichage accueil
+
+*Mettre en forme les plats random sur accueil
