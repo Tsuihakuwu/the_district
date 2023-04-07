@@ -1,15 +1,20 @@
 <h1 class="d-flex justify-content-center mt-2">Catégories</h1>
 <hr class="w-75 mx-auto mt-0 mb-3">
 
-<div class="d-flex justify-content-around flex-wrap">
+<?php 
 
-<?php
-
-include("db.php");
+include("DAO.php");
 
 $tab = disp_cat();
 
-$tab2 = rd_plat();
+$tab2 = mp_plat();
+
+?>
+
+
+<div class="d-flex justify-content-around flex-wrap">
+
+<?php
 
 foreach ($tab as $categorie): ?>
 
@@ -25,15 +30,15 @@ foreach ($tab as $categorie): ?>
 <hr class="w-75 mx-auto mt-0 mb-3">
 </div>
 
-<h3 class="d-flex justify-content-center mt-2">Et pourquoi pas ?</h3>
-<div class="d-flex justify-content-around flex-wrap">
+<h3 class="d-flex justify-content-center">Les plus populaires</h3>
+<div class="d-flex justify-content-around flex-wrap mt-3">
 
 <?php foreach ($tab2 as $plat_sample): ?>
 
 <div class="card mb-3 border-0 shd text-white">
     <h5 class="card-header"><?= $plat_sample->libelle ?></h5>
     <div class="imgcat">
-        <img src="asset/img/category/<?= $plat_sample->image ?>" class="card-img-bottom" alt="<?= $categorie->image ?>">
+        <img src="asset/img/food/<?= $plat_sample->image ?>" class="card-img-bottom" alt="<?= $categorie->image ?>">
     </div>
 </div>
 

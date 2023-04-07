@@ -22,4 +22,6 @@ Downgrade Bootstrap 5.1.3
 Mise en forme CSS
 Création fonction pour random 3 plats pour affichage accueil
 
+0.05 - Construction des requêtes
+
 *Mettre en forme les plats random sur accueil

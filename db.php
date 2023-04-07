@@ -22,21 +22,4 @@ function connexionBase(){
         die('Fin du script');
     }
 }
-
-function disp_cat(){
-    $db = connexionBase();        
-    $query = $db->query('SELECT * FROM categorie');
-    $tab = $query->fetchAll(PDO::FETCH_OBJ);
-    $query->closeCursor();
-    return $tab;
-}
-
-function rd_plat(){
-    $db = connexionBase();        
-    $query = $db->query('SELECT * FROM plat ORDER BY RAND() LIMIT 3;');
-    $tab = $query->fetchAll(PDO::FETCH_OBJ);
-    $query->closeCursor();
-    return $tab;
-}
-
 ?>
