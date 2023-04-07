@@ -4,9 +4,9 @@ function connexionBase(){
     
     $db="the_district";
     $dbhost="localhost";
-    $dbport=8080;
-    $dbuser="admin";
-    $dbpasswd="mdpbdd1";
+    $dbport=3306;
+    $dbuser="root";
+    $dbpasswd="";
     $charset="utf8";
     
     try 

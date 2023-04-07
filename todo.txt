@@ -24,4 +24,8 @@ Création fonction pour random 3 plats pour affichage accueil
 
 0.05 - Construction des requêtes
 
-*Mettre en forme les plats random sur accueil
+0.06 - Refonte des requêtes et mise en forme accueil final
+
+LIMIT 6 sur les catégories et selection avec UNION pour avoir ce nombre de catégories même sans commandes
+
+* Connection compte github via vscode pour sync extension, faire backup de ce que j'ai à l'afpa

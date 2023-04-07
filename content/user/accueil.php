@@ -12,13 +12,13 @@ $tab2 = mp_plat();
 ?>
 
 
-<div class="d-flex justify-content-around flex-wrap">
+<div class="d-flex justify-content-around row">
 
 <?php
 
 foreach ($tab as $categorie): ?>
 
-<div class="card mb-3 border-0 shd text-white">
+<div class="card mb-3 mx-3 border-0 p-0 shd text-white col-3">
     <h5 class="card-header"><?= $categorie->libelle ?></h5>
     <div class="imgcat">
         <img src="asset/img/category/<?= $categorie->image ?>" class="card-img-bottom" alt="<?= $categorie->image ?>">
