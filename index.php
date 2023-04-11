@@ -6,9 +6,22 @@
     //Liste des pages
     if(isset($_REQUEST["page"])){
         switch($_REQUEST["page"]){
-            case "tmp":
-                include("tmp.php");
+            case "categorie":
+                include("content/user/categorie.php");
                 break;
+            case "plat":
+                include("content/user/plat.php");
+                break;
+            case "contact":
+                include("content/user/contact.php");
+                break;
+            case "detail":
+                if(isset($_REQUEST["p_id"])){
+                    include("content/user/d_plat.php");
+                }
+                else {
+                    header("Location:index.php");
+                }
         }
     }
     else {
@@ -16,4 +29,5 @@
     }
 
     include('footer.php');
+
 ?>

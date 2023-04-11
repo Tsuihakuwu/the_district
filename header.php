@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open_Sans">
     <title>The District</title>
 </head>
+
 <body>
-<div class="wraper">
-<img class="bg" src="asset/img/bg3.jpg" alt="background_district_burger">
-<div class="content">
+    <div class="wraper">
+        <img class="bg" src="asset/img/bg3.jpg" alt="background_district_burger">
+        <div class="content d-flex flex-column h-100">
