@@ -28,4 +28,4 @@ Création fonction pour random 3 plats pour affichage accueil
 
 LIMIT 6 sur les catégories et selection avec UNION pour avoir ce nombre de catégories même sans commandes
 
-0.07b - Pages contact plat et catégorie création
+0.07c - Pages contact plat et catégorie création
