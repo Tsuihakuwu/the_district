@@ -19,6 +19,9 @@
                 if(isset($_REQUEST["p_id"])){
                     include("content/user/d_plat.php");
                 }
+                if(isset($_REQUEST["c_id"])){
+                    include("content/user/d_categorie.php");
+                }
                 else {
                     header("Location:index.php");
                 }

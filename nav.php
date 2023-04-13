@@ -1,8 +1,8 @@
 <header>
-    <nav class="navbar navbar-expand-md rounded mx-3 mt-4 p-0 shd">
+    <nav class="navbar navbar-expand-md rounded mx-3 mt-4 p-0 mnb">
         <div id="menu_container" class="container-fluid">
             <a class="navbar-brand col-4 col-md-2 mx-4 my-3" href="index.php">
-                <img src="asset/img/the_district_brand/logo_transparent_sm.png" alt="responsive_logo_the_district" class="img-fluid">
+                <img src="asset/img/the_district_brand/logo_transparent_sm.png" alt="responsive_logo_the_district" class="img-fluid logo_rt">
             </a>
             <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">

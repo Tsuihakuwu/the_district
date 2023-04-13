@@ -4,7 +4,7 @@ include_once("db.php");
 
 function disp_cat(){
     $db = connexionBase();
-    $query = $db->query('SELECT * FROM (SELECT categorie.libelle, categorie.image FROM commande
+    $query = $db->query('SELECT * FROM (SELECT categorie.libelle, categorie.image, categorie.id_categorie FROM commande
     JOIN plat ON commande.id_plat = plat.id_plat
     JOIN categorie ON plat.id_categorie = categorie.id_categorie
     WHERE commande.etat = "Livrée" AND LOWER(categorie.active) = "yes" AND LOWER(plat.active) = "yes"
@@ -12,7 +12,7 @@ function disp_cat(){
     ORDER BY COUNT(*)
     DESC) AS T1
     UNION
-    SELECT categorie.libelle, categorie.image
+    SELECT categorie.libelle, categorie.image, categorie.id_categorie
     FROM categorie
     WHERE LOWER(categorie.active) = "yes"
     LIMIT 6');
@@ -23,7 +23,7 @@ function disp_cat(){
 
 function mp_plat(){
     $db = connexionBase();        
-    $query = $db->query('SELECT COUNT(*) AS nbr_vente, plat.libelle, plat.image, plat.id_plat 
+    $query = $db->query('SELECT COUNT(*) AS nbr_vente, plat.libelle, plat.image, plat.id_plat, plat.prix 
     FROM commande
     JOIN plat ON plat.id_plat = commande.id_plat
     WHERE commande.etat = "Livrée" AND LOWER(plat.active) = "yes"
@@ -54,10 +54,25 @@ function detail_plat($id){
 
 function all_cat(){
     $db = connexionBase();        
-    $query = $db->query('SELECT categorie.libelle, categorie.image FROM categorie WHERE LOWER(categorie.active) = "yes"');
+    $query = $db->query('SELECT categorie.libelle, categorie.image, categorie.id_categorie FROM categorie WHERE LOWER(categorie.active) = "yes"');
     $tab = $query->fetchAll(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
 }
 
+function detail_cat($id){
+    $db = connexionBase();        
+    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = '.$id);
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+function get_cat($id){
+    $db = connexionBase();        
+    $query = $db->query('SELECT * FROM categorie WHERE LOWER(categorie.active) = "yes" AND categorie.id_categorie = '.$id);
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
 ?>

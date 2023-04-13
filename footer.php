@@ -1,5 +1,5 @@
-<footer class="footer mt-auto py-3 rounded mx-3 mb-3 shd">
-    <ul class="justify-content-center row mb-0">
+<footer class="footer mt-auto rounded mx-3 mb-3 mnb">
+    <ul class="justify-content-center row mb-0 px-0">
         <div class="col-8 row justify-content-center">
             <li class="list-group-item bg-transparent border-0 col-2 col-md-1 mx-3 p-2">
                 <a href="#"><img class="img-fluid socials" src="asset/img/socials/facebook-svgrepo-com.svg" alt="socials_facebook"></a>
