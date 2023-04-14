@@ -62,17 +62,39 @@ function all_cat(){
 
 function detail_cat($id){
     $db = connexionBase();        
-    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = '.$id);
+    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = '.$id.';');
     $tab = $query->fetchAll(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
 }
 
 function get_cat($id){
-    $db = connexionBase();        
-    $query = $db->query('SELECT * FROM categorie WHERE LOWER(categorie.active) = "yes" AND categorie.id_categorie = '.$id);
+    $db = connexionBase();
+    $query = $db->query('SELECT * FROM categorie WHERE LOWER(categorie.active) = "yes" AND categorie.id_categorie = '.$id.';');
     $tab = $query->fetch(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
 }
+
+function search_cat($search){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM categorie WHERE libelle LIKE "%"?"%" AND LOWER(categorie.active) = "yes";');
+    $query->execute(array($search));
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+
+}
+
+function search_plat($search){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM plat WHERE (libelle LIKE "%":search1"%" OR plat.description LIKE "%":search2"%") AND LOWER(plat.active) = "yes";');
+    $query->bindValue(":search1", $search, PDO::PARAM_STR);
+    $query->bindValue(":search2", $search, PDO::PARAM_STR);
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
 ?>

@@ -35,3 +35,9 @@ LIMIT 6 sur les catégories et selection avec UNION pour avoir ce nombre de cat�
 Centrage des blocs description sur les Plats
 Mise en forme page d'accueil pour barre de recherche
 Création fichier script de recherche
+
+0.09 - écriture du script de recherche
+
+Recherche sur le site dans les tables plat et catégorie
+
+*Refaire les requêts SQL proprement avec des prepare au lieu des concaténations
