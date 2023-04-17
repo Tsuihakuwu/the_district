@@ -46,7 +46,8 @@ function all_plat(){
 
 function detail_plat($id){
     $db = connexionBase();        
-    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_plat = '.$id.' LIMIT 1');
+    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_plat = ? LIMIT 1');
+    $query->execute(array($id));
     $tab = $query->fetch(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
@@ -62,7 +63,9 @@ function all_cat(){
 
 function detail_cat($id){
     $db = connexionBase();        
-    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = '.$id.';');
+    $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
+    $query->bindValue(":id", $id, PDO::PARAM_STR);
+    $query->execute();
     $tab = $query->fetchAll(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
@@ -70,7 +73,9 @@ function detail_cat($id){
 
 function get_cat($id){
     $db = connexionBase();
-    $query = $db->query('SELECT * FROM categorie WHERE LOWER(categorie.active) = "yes" AND categorie.id_categorie = '.$id.';');
+    $query = $db->prepare('SELECT * FROM categorie WHERE LOWER(categorie.active) = "yes" AND categorie.id_categorie = :id;');
+    $query->bindValue(":id", $id, PDO::PARAM_STR);
+    $query->execute();
     $tab = $query->fetch(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
