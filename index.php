@@ -6,6 +6,9 @@
     //Liste des pages
     if(isset($_REQUEST["page"])){
         switch($_REQUEST["page"]){
+            case "c":
+                include("content/admin/connexion.php");
+                break;
             case "categorie":
                 include("content/user/categorie.php");
                 break;

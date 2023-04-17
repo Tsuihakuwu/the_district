@@ -1,5 +1,5 @@
 <main>
-	<div class="d-flex justify-content-center form-container mt-5 mb-5">
+	<div class="d-flex justify-content-center form-container mt-5 mb-5 pt-0 rounded mnb">
 		<form name="frmContact" id="frmContact" method="post" action="/content/script/s_contact.php" enctype="multipart/form-data" onsubmit="return validateContactForm()">
 			<div class=" input-row">
 			<label style="padding-top: 20px;">Nom</label> <span id="userName-info" class="info"></span><br /> <input type="text" class="input-field" name="userName" id="userName" />
@@ -17,7 +17,7 @@
 		<textarea name="content" id="content" class="input-field" cols="60" rows="6"></textarea>
 	</div>
 	<div>
-		<input type="submit" name="send" class="btn-submit" value="Envoyer" />
+		<input type="submit" name="send" class="btn-submit my-3" value="Envoyer" />
 
 		<div id="statusMessage">
 			<?php

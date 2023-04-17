@@ -65,6 +65,8 @@ a:hover{
     -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
     background-color: #970748d8;
+    color: aliceblue;
+    margin:1rem;
 }
 
 .card {

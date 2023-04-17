@@ -1,4 +1,4 @@
-<footer class="footer mt-auto rounded mx-3 mb-3 mnb">
+<footer class="footer mt-auto rounded mnb">
     <ul class="justify-content-center row mb-0 px-0">
         <div class="col-8 row justify-content-center">
             <li class="list-group-item bg-transparent border-0 col-2 col-md-1 mx-3 p-2">
@@ -17,7 +17,7 @@
     </ul>
 </footer>
 <div id="login" class="d-flex justify-content-end mx-3 mt-0">
-    <small><a href="content/admin/connexion.php">Connexion</a></small>
+    <small><a href="?page=c">Connexion</a></small>
 </div>
 </div>
 </div>

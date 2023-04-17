@@ -102,4 +102,13 @@ function search_plat($search){
     return $tab;
 }
 
+function user_co($user){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM utilisateur WHERE email=?;');
+    $query->execute(array($user));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
 ?>

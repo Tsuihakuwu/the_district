@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-md rounded mx-3 mt-4 p-0 mnb">
+    <nav class="navbar navbar-expand-md rounded p-0 mnb">
         <div id="menu_container" class="container-fluid">
             <a class="navbar-brand col-4 col-md-2 mx-4 my-3" href="index.php">
                 <img src="asset/img/the_district_brand/logo_transparent_sm.png" alt="responsive_logo_the_district" class="img-fluid logo_rt">
