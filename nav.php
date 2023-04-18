@@ -22,10 +22,24 @@
                     <li class="nav-item mx-4">
                         <a class="nav-link text-white" href="index.php?page=plat">Plats</a>
                     </li>
-                    <li class="nav-item mx-4 mb-4 mb-md-0">
-                        <a class="nav-link text-white" href="index.php?page=contact">Contact</a>
-                    </li>
+                    <?php if (!isset($_SESSION['login'])) : ?>
+                        <li class="nav-item mx-4 mb-4 mb-md-0">
+                            <a class="nav-link text-white" href="index.php?page=contact">Contact</a>
+                        </li>
+                        <li class="nav-item mx-4 mb-4 mb-md-0">
+                            <a class="nav-link text-white" href="index.php?page=c">Connexion</a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['login'])) :  ?>
+                        <li class="nav-item mx-4 mb-4 mb-md-0">
+                            <a class="nav-link text-white" href="index.php?page=admin">Administration</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
+                <?php if (isset($_SESSION['login'])) :  ?>
+                    <span class="text-white mx-3">Connecté en tant que : <b><?= $_SESSION["login"] ?></b></span>
+                    <a href="content/script/s_deconnexion.php"><input type="button" class="btn btn-secondary btn-sm" value="Deconnexion"></input></a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>

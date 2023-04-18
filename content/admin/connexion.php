@@ -7,7 +7,7 @@
             </div>
             <div class="input-row">
                 <label class="pt-1">Mot de passe : </label> <span id="userPassword-info" class="info"></span><br />
-                <input type="text" class="input-field" name="userPassword" id="userPassword" />
+                <input type="password" class="input-field" name="userPassword" id="userPassword" />
             </div>
             <div>
                 <input type="submit" class="btn-submit my-2" value="Envoyer" />
@@ -18,10 +18,10 @@
                         echo '';
                         break;
                     case (1):
-                        echo '<small class="txt-danger">erreur1</small>';
+                        echo '<small class="text-danger">erreur1</small>';
                         break;
                     case (2):
-                        echo '<small>erreur2</small>';
+                        echo '<small class="text-danger">erreur2</small>';
                         break;
                 }
             } ?>

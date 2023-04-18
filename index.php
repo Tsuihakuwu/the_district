@@ -1,5 +1,7 @@
 <?php
 
+    if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+
     include('header.php');
     include('nav.php');
     
@@ -28,6 +30,36 @@
                 else {
                     header("Location:index.php");
                 }
+            case "admin":
+                if(isset($_SESSION['login'])&&$_SESSION['login']!=""){
+                    include("content/admin/admin_panel.php");
+                    if(isset($_REQUEST['gest'])){
+                        switch($_REQUEST['gest']){
+                            case "cat":
+                                include("content/admin/admin_cat.php");
+                                break;
+                            case "plat":
+                                include("content/admin/admin_plat.php");
+                                break;
+                            case "com":
+                                include("content/admin/admin_com.php");
+                                break;
+                            case "usr":
+                                include("content/admin/admin_usr.php");
+                                break;
+                            case "user_mod":
+                                include("content/admin/update_user_form.php");
+                                break;
+                            case "user_del":
+                                include("content/admin/delete_user_form.php");
+                                break;
+                        }
+                    }
+                }
+                else{
+                    header("Location:index.php");
+                }
+                break;
         }
     }
     else {

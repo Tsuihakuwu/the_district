@@ -39,5 +39,10 @@ Création fichier script de recherche
 0.09 - écriture du script de recherche
 
 Recherche sur le site dans les tables plat et catégorie
+Requêtes SQL propre avec prepare au lieu des concaténations
 
-*Refaire les requêts SQL proprement avec des prepare au lieu des concaténations
+0.10 - Création page et script connexion back office
+
+0.11 - Création pages affichage back office et pages modif user
+
+*Finir la fonction update_user pour que le script fonctionne

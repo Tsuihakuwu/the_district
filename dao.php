@@ -111,4 +111,55 @@ function user_co($user){
     return $tab;
 }
 
+//ADMIN QUERY
+
+function a_display_cat(){
+    $db = connexionBase();
+    $query = $db->query('SELECT * FROM categorie');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+function a_display_plat(){
+    $db = connexionBase();
+    $query = $db->query('SELECT * FROM plat');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+function a_display_com(){
+    $db = connexionBase();
+    $query = $db->query('SELECT * FROM commande');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+function a_display_usr(){
+    $db = connexionBase();
+    $query = $db->query('SELECT * FROM utilisateur');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+function o_display_usr($id){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = ?;');
+    $query->execute(array($id));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+function update_user($id_utilisateur, $nom, $prenom, $email, $password){
+    $db = connexionBase();
+    $query = $db->prepare('UPDATE  * FROM utilisateur WHERE id_utilisateur = ?;');
+    $query->execute(array($id));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
 ?>
