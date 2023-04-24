@@ -2,6 +2,10 @@
 
 include_once("db.php");
 
+//------------------------------ FRONT ------------------------------//
+
+//------------------------------ DISPLAY MOST POP CAT LIMIT 6 ------------------------------//
+
 function disp_cat(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM (SELECT categorie.libelle, categorie.image, categorie.id_categorie FROM commande
@@ -21,6 +25,8 @@ function disp_cat(){
     return $tab;
 }
 
+//------------------------------ DISPLAY MOST POPULAR PLAT LIMIT 3 ------------------------------//
+
 function mp_plat(){
     $db = connexionBase();        
     $query = $db->query('SELECT COUNT(*) AS nbr_vente, plat.libelle, plat.image, plat.id_plat, plat.prix 
@@ -36,6 +42,8 @@ function mp_plat(){
     return $tab;
 }
 
+//------------------------------ ALL PLAT ------------------------------//
+
 function all_plat(){
     $db = connexionBase();        
     $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes"');
@@ -43,6 +51,8 @@ function all_plat(){
     $query->closeCursor();
     return $tab;
 }
+
+//------------------------------ ONE PLAT WITH ID PARAM ------------------------------//
 
 function detail_plat($id){
     $db = connexionBase();        
@@ -53,6 +63,8 @@ function detail_plat($id){
     return $tab;
 }
 
+//------------------------------ ALL CAT ------------------------------//
+
 function all_cat(){
     $db = connexionBase();        
     $query = $db->query('SELECT categorie.libelle, categorie.image, categorie.id_categorie FROM categorie WHERE LOWER(categorie.active) = "yes"');
@@ -61,15 +73,7 @@ function all_cat(){
     return $tab;
 }
 
-function detail_cat($id){
-    $db = connexionBase();        
-    $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
-    $query->bindValue(":id", $id, PDO::PARAM_STR);
-    $query->execute();
-    $tab = $query->fetchAll(PDO::FETCH_OBJ);
-    $query->closeCursor();
-    return $tab;
-}
+//------------------------------ ONE CAT WITH ID PARAM ------------------------------//
 
 function get_cat($id){
     $db = connexionBase();
@@ -81,6 +85,19 @@ function get_cat($id){
     return $tab;
 }
 
+//------------------------------ PLAT FROM CAT WITH ID PARAM ------------------------------//
+
+function detail_cat($id){
+    $db = connexionBase();        
+    $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
+    $query->bindValue(":id", $id, PDO::PARAM_STR);
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+//------------------------------ BARRE DE RECHERCHE ------------------------------//
 function search_cat($search){
     $db = connexionBase();
     $query = $db->prepare('SELECT * FROM categorie WHERE libelle LIKE "%"?"%" AND LOWER(categorie.active) = "yes";');
@@ -90,7 +107,6 @@ function search_cat($search){
     return $tab;
 
 }
-
 function search_plat($search){
     $db = connexionBase();
     $query = $db->prepare('SELECT * FROM plat WHERE (libelle LIKE "%":search1"%" OR plat.description LIKE "%":search2"%") AND LOWER(plat.active) = "yes";');
@@ -102,6 +118,8 @@ function search_plat($search){
     return $tab;
 }
 
+//------------------------------ CONNEXION ------------------------------//
+
 function user_co($user){
     $db = connexionBase();
     $query = $db->prepare('SELECT * FROM utilisateur WHERE email=?;');
@@ -111,7 +129,9 @@ function user_co($user){
     return $tab;
 }
 
-//ADMIN QUERY
+//------------------------------ ADMIN QUERY ------------------------------//
+
+//------------------------------ CATEGORIE ------------------------------//
 
 function a_display_cat(){
     $db = connexionBase();
@@ -121,6 +141,9 @@ function a_display_cat(){
     $query->closeCursor();
     return $tab;
 }
+
+//------------------------------ PLAT ------------------------------//
+
 function a_display_plat(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM plat');
@@ -129,6 +152,9 @@ function a_display_plat(){
     $query->closeCursor();
     return $tab;
 }
+
+//------------------------------ COMMANDE ------------------------------//
+
 function a_display_com(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM commande');
@@ -137,6 +163,23 @@ function a_display_com(){
     $query->closeCursor();
     return $tab;
 }
+
+
+//------------------------------ USER ------------------------------//
+
+//CREATE
+function create_user($nom, $prenom, $email, $hashed_password){
+    $db = connexionBase();
+    $query = $db->prepare(' INSERT INTO utilisateur (nom, prenom, email, password) VALUES (:nom, :prenom, :email, :hashed_password);');
+    $query->bindValue(":nom", $nom, PDO::PARAM_STR);
+    $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+    $query->bindValue(":email", $email, PDO::PARAM_STR);
+    $query->bindValue(":hashed_password", $hashed_password, PDO::PARAM_STR);
+    $query->execute();
+    $query->closeCursor();
+    return true;
+}
+//READ ALL
 function a_display_usr(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM utilisateur');
@@ -145,6 +188,7 @@ function a_display_usr(){
     $query->closeCursor();
     return $tab;
 }
+//READ ONE WITH ID PARAMETER
 function o_display_usr($id){
     $db = connexionBase();
     $query = $db->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = ?;');
@@ -153,13 +197,24 @@ function o_display_usr($id){
     $query->closeCursor();
     return $tab;
 }
-
-function update_user($id_utilisateur, $nom, $prenom, $email, $password){
+//UPDATE
+function update_user($id, $nom, $prenom, $email){
     $db = connexionBase();
-    $query = $db->prepare('UPDATE  * FROM utilisateur WHERE id_utilisateur = ?;');
-    $query->execute(array($id));
-    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query = $db->prepare('UPDATE utilisateur SET nom = :nom, prenom = :prenom, email = :email WHERE id_utilisateur = :id;');
+    $query->bindValue(":nom", $nom, PDO::PARAM_STR);
+    $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+    $query->bindValue(":email", $email, PDO::PARAM_STR);
+    $query->bindValue(":id", $id, PDO::PARAM_STR);
+    $query->execute();
     $query->closeCursor();
-    return $tab;
 }
+//DELETE
+function delete_user($id){
+    $db = connexionBase();
+    $query = $db->prepare('DELETE FROM utilisateur WHERE id_utilisateur = ?');
+    $query->execute(array($id));
+    $query->closeCursor();
+    return true;
+}
+
 ?>

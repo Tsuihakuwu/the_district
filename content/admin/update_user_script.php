@@ -1,5 +1,5 @@
 <?php
-require_once('dao.php');
+require_once('../../dao.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Retrieve the values from the form
@@ -7,22 +7,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
 
     // Update the user in the database
-    update_user($id_utilisateur, $nom, $prenom, $email, $password);
+    update_user($id_utilisateur, $nom, $prenom, $email);
 
     // Redirect to the list of users
-    header('Location: users.php');
+    header('Location:/?page=admin&gest=usr');
     exit;
 }
 
 if (isset($_GET['id'])) {
     // Retrieve the user from the database
-    $user = get_user($_GET['id']);
+    $user = o_display_usr($_GET['id']);
 } else {
     // Redirect to the list of users if no user ID was provided
-    header('Location: users.php');
+    header('Location:/?page=admin&gest=usr');
     exit;
 }
 ?>

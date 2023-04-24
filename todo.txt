@@ -45,4 +45,8 @@ Requêtes SQL propre avec prepare au lieu des concaténations
 
 0.11 - Création pages affichage back office et pages modif user
 
-*Finir la fonction update_user pour que le script fonctionne
+0.12 - Création script modif et delete user (75)
+
+Fonction update_user
+
+*Revoir DELETE

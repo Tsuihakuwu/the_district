@@ -18,7 +18,11 @@
         echo '<td>'.$row->telephone_client.'</td>';
         echo '<td>'.$row->email_client.'</td>';
         echo '<td>'.$row->adresse_client.'</td>';
-        echo '</tr>';
+        echo '<td>
+        <a href="modify_com.php?id_commande=<?= $com->id_commande ?>" class="btn btn-secondary btn-sm">Modifier</a>
+        <a href="delete_com.php?id_commande=<?= $com->id_commande ?>" class="btn btn-secondary btn-sm">Supprimer</a>
+      </td>';
+      echo '</tr>';
     }
     echo '</tbody></table>';
 ?>

@@ -2,7 +2,7 @@
 require_once 'dao.php';
 $result = a_display_usr();
 ?>
-<a href="create_user_form.php" class="btn btn-primary">Create User</a>
+<a href="/?page=admin&gest=user_create" class="btn btn-primary">Create User</a>
 <div class="table-responsive">
     <table class="table table-bordered table-striped table-hover rounded">
         <thead class="thead-dark">
@@ -25,7 +25,7 @@ $result = a_display_usr();
                     <td><?php echo $row->password; ?></td>
                     <td>
                         <a href="?page=admin&gest=user_mod&id=<?php echo $row->id_utilisateur; ?>" class="btn btn-secondary btn-sm">Modifier</a>
-                        <a href="delete_user.php?id=<?php echo $row->id_utilisateur; ?>" class="btn btn-secondary btn-sm">Supprimer</a>
+                        <a href="?page=admin&gest=user_delete&id=<?php echo $row->id_utilisateur; ?>" class="btn btn-secondary btn-sm">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

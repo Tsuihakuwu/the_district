@@ -53,6 +53,12 @@
                             case "user_del":
                                 include("content/admin/delete_user_form.php");
                                 break;
+                            case "user_create":
+                                include("content/admin/create_user_form.php");
+                                break;
+                            case "user_delete":
+                                include("content/admin/delete_user_form.php");
+                                break;
                         }
                     }
                 }
