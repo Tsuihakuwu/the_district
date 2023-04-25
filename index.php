@@ -50,14 +50,20 @@
                             case "user_mod":
                                 include("content/admin/update_user_form.php");
                                 break;
-                            case "user_del":
-                                include("content/admin/delete_user_form.php");
-                                break;
                             case "user_create":
                                 include("content/admin/create_user_form.php");
                                 break;
                             case "user_delete":
                                 include("content/admin/delete_user_form.php");
+                                break;
+                            case "com_create":
+                                include("content/admin/create_command_form.php");
+                                break;
+                            case "com_mod":
+                                include("content/admin/update_command_form.php");
+                                break;
+                            case "com_delete":
+                                include("content/admin/delete_command_form.php");
                                 break;
                         }
                     }

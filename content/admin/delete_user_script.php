@@ -10,7 +10,7 @@ if(isset($_SESSION['login']) && isset($_REQUEST['id_utilisateur'])){
   if($user && $user->email == $_SESSION['login']){
     $_SESSION['error'] = "Vous ne pouvez pas supprimer votre propre compte.";
     echo 'error';
-    // header("Location:/?page=admin&gest=usr");
+    header("Location:/?page=admin&gest=usr");
     exit();
   }
 }
@@ -20,6 +20,6 @@ if(isset($_REQUEST['id_utilisateur'])){
   $_SESSION['success'] = "Utilisateur supprimé avec succès.";
   echo 'ok';
 }
-// header("Location:/?page=admin&gest=usr");
+header("Location:/?page=admin&gest=usr");
 exit();
 ?>

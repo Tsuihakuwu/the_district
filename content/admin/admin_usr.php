@@ -2,9 +2,12 @@
 require_once 'dao.php';
 $result = a_display_usr();
 ?>
-<a href="/?page=admin&gest=user_create" class="btn btn-primary">Create User</a>
+<div class="text-center">
+<h2>Liste des utilisateurs</h2>
+<a href="/?page=admin&gest=user_create" class="btn btn-primary">Créer un utilisateur</a>
+</div>
 <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover rounded">
+    <table class="table table-bordered rounded m-3 mnb">
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>

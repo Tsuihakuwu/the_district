@@ -2,9 +2,12 @@
     require_once 'dao.php';
     $result = a_display_com();
 
+    echo '';
+    echo '<div class="text-center"><h2>Liste des commandes</h2><a href="/?page=admin&gest=com_create" class="btn btn-primary btn-sm">Ajouter une commande</a></div>
+    <table class="table">';
     echo '<table class="table table-bordered rounded m-3 mnb">';
     echo '<thead class="thead-dark">';
-    echo '<tr><th>id_commande</th><th>id_plat</th><th>quantite</th><th>total</th><th>date_commande</th><th>etat</th><th>nom_client</th><th>telephone_client</th><th>email_client</th><th>adresse_client</th></tr></thead>';
+    echo '<tr><th>id_commande</th><th>id_plat</th><th>quantite</th><th>total</th><th>date_commande</th><th>etat</th><th>nom_client</th><th>telephone_client</th><th>email_client</th><th>adresse_client</th><th>Actions</th></tr></thead>';
     echo '<tbody>';
     foreach ($result as $row) {
         echo '<tr>';
@@ -19,10 +22,9 @@
         echo '<td>'.$row->email_client.'</td>';
         echo '<td>'.$row->adresse_client.'</td>';
         echo '<td>
-        <a href="modify_com.php?id_commande=<?= $com->id_commande ?>" class="btn btn-secondary btn-sm">Modifier</a>
-        <a href="delete_com.php?id_commande=<?= $com->id_commande ?>" class="btn btn-secondary btn-sm">Supprimer</a>
+        <a href="/?page=admin&gest=com_mod&id_com='.$row->id_commande.'" class="btn btn-secondary btn-sm">Modifier</a>
+        <a href="/?page=admin&gest=com_delete&id_com='.$row->id_commande.'" class="btn btn-secondary btn-sm">Supprimer</a>
       </td>';
       echo '</tr>';
     }
     echo '</tbody></table>';
-?>

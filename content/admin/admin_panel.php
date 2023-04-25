@@ -1,7 +1,8 @@
 <?php if (session_status() !== PHP_SESSION_ACTIVE) session_start(); ?>
 
 <?php if (isset($_SESSION['login'])) : ?>
-
+    <h1 class="text-center">Panneau d'administration</h1>
+<hr class="mt-0 mb-0">
     <div class="d-flex row mt-5 mb-5 rounded mnb">
         <ul class="navbar-nav ms-md-auto me-md-5">
             <li class="nav-item mx-4 d-flex justify-content-center">

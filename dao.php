@@ -54,14 +54,14 @@ function all_plat(){
 
 //------------------------------ ONE PLAT WITH ID PARAM ------------------------------//
 
-function detail_plat($id){
-    $db = connexionBase();        
-    $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_plat = ? LIMIT 1');
-    $query->execute(array($id));
-    $tab = $query->fetch(PDO::FETCH_OBJ);
-    $query->closeCursor();
-    return $tab;
-}
+// function detail_plat($id){
+//     $db = connexionBase();        
+//     $query = $db->query('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_plat = ? LIMIT 1');
+//     $query->execute(array($id));
+//     $tab = $query->fetch(PDO::FETCH_OBJ);
+//     $query->closeCursor();
+//     return $tab;
+// }
 
 //------------------------------ ALL CAT ------------------------------//
 
@@ -92,7 +92,7 @@ function detail_cat($id){
     $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
     $query->bindValue(":id", $id, PDO::PARAM_STR);
     $query->execute();
-    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $tab = $query->fetch(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
 }
@@ -155,6 +155,17 @@ function a_display_plat(){
 
 //------------------------------ COMMANDE ------------------------------//
 
+//CREATE
+function create_command($id_plat, $quantite, $date_commande, $total,$nom_client, $telephone_client, $email_client, $adresse_client){
+    $etat="active";
+    $db = connexionBase();
+    $query = $db->prepare('INSERT INTO commande (id_plat, quantite, date_commande, total, nom_client, telephone_client, email_client, adresse_client, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
+    $query->execute([$id_plat, $quantite, $date_commande, $total, $nom_client, $telephone_client, $email_client, $adresse_client, $etat]);
+    $query->closeCursor();
+    return true;  
+}
+
+//READ ALL
 function a_display_com(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM commande');
@@ -164,6 +175,53 @@ function a_display_com(){
     return $tab;
 }
 
+//READ ONE WITH ID PARAMETER
+function o_display_com($id){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM commande WHERE id_commande = ?;');
+    $query->execute(array($id));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+//UPDATE
+function update_command($id_commande,$id_plat, $quantite, $total, $date_commande, $etat, $nom_client, $telephone_client,$email_client,$adresse_client){
+    $db = connexionBase();
+    $query = $db->prepare("UPDATE commande SET 
+                id_plat=:id_plat, 
+                quantite=:quantite, 
+                total=:total, 
+                date_commande=:date_commande, 
+                etat=:etat, 
+                nom_client=:nom_client, 
+                telephone_client=:telephone_client, 
+                email_client=:email_client,
+                adresse_client=:adresse_client
+            WHERE id_commande=:id_commande");
+    $query->bindValue(":id_plat", $id_plat, PDO::PARAM_STR);
+    $query->bindValue(":quantite", $quantite, PDO::PARAM_STR);
+    $query->bindValue(":total", $total, PDO::PARAM_STR);
+    $query->bindValue(":date_commande", $date_commande, PDO::PARAM_STR);
+    $query->bindValue(":etat", $etat, PDO::PARAM_STR);
+    $query->bindValue(":nom_client", $nom_client, PDO::PARAM_STR);
+    $query->bindValue(":telephone_client", $telephone_client, PDO::PARAM_STR);
+    $query->bindValue(":email_client", $email_client, PDO::PARAM_STR);
+    $query->bindValue(":adresse_client", $adresse_client, PDO::PARAM_STR);
+    $query->bindValue(":id_commande", $id_commande, PDO::PARAM_STR);
+    
+    $query->execute();
+    $query->closeCursor();
+
+}
+
+function delete_command($id){
+    $db = connexionBase();
+    $query = $db->prepare('DELETE FROM commande WHERE id_commande = ?');
+    $query->execute(array($id));
+    $query->closeCursor();
+    return true;
+}
 
 //------------------------------ USER ------------------------------//
 
