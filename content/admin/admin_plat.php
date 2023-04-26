@@ -2,9 +2,10 @@
     require_once 'dao.php';
     $result = a_display_plat();
 
+    echo '<div class="container mt-4">';
     echo '<h2 class="text-center">Liste des plats</h2>
     <div class="text-center">
-        <a href="create_plat_form.php" class="btn btn-primary btn-sm">Ajouter un plat</a>
+        <a href="/?page=admin&gest=plat_create" class="btn btn-primary btn-sm">Ajouter un plat</a>
     </div>';
     echo '<table class="table table-bordered mx-3 mnb rounded">';
     echo '<thead class="thead-dark">';
@@ -20,10 +21,11 @@
         echo '<td>'.$row->id_categorie.'</td>';
         echo '<td>'.$row->active.'</td>';
         echo '                        <td>
-        <a href="update_plat_form.php?id_plat='.$row->id_plat.'" class="btn btn-secondary btn-sm">Modifier</a>
+        <a href="?page=admin&gest=plat_mod&id_plat='.$row->id_plat.'" class="btn btn-secondary btn-sm">Modifier</a>
         <a href="delete_plat_form.php?id_plat='.$row->id_plat.'" class="btn btn-secondary btn-sm">Supprimer</a>
     </td>';
         echo '</tr>';
     }
     echo '</tbody></table>';
+    echo '</div>';
 ?>

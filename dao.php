@@ -92,6 +92,16 @@ function detail_cat($id){
     $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
     $query->bindValue(":id", $id, PDO::PARAM_STR);
     $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+function detail_cat2($id){
+    $db = connexionBase();        
+    $query = $db->prepare('SELECT * FROM plat WHERE LOWER(plat.active) = "yes" AND plat.id_categorie = :id');
+    $query->bindValue(":id", $id, PDO::PARAM_STR);
+    $query->execute();
     $tab = $query->fetch(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
@@ -144,6 +154,17 @@ function a_display_cat(){
 
 //------------------------------ PLAT ------------------------------//
 
+//CREATE
+function create_plat($libelle,$description,$prix,$image,$id_categorie){
+    $active = "Yes";
+    $db = connexionBase();
+    $query = $db->prepare('INSERT INTO plat (libelle,description,prix,image,id_categorie,active) VALUES (?,?,?,?,?,?);');
+    $query->execute([$libelle,$description,$prix,$image,$id_categorie,$active]);
+    $query->closeCursor();
+    return true;  
+}
+
+//READ ALL
 function a_display_plat(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM plat');
@@ -151,6 +172,41 @@ function a_display_plat(){
     $tab = $query->fetchAll(PDO::FETCH_OBJ);
     $query->closeCursor();
     return $tab;
+}
+
+//READ ONE WITH ID PARAMETER
+function o_display_plat($id){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM plat WHERE id_plat = ?;');
+    $query->execute(array($id));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+//UPDATE WITH FILE CONTROL AND MOVE SUPPORT
+function update_plat($id_plat,$libelle, $description, $prix, $image,$id_categorie){
+    $active = "Yes";
+    $db = connexionBase();
+    $query = $db->prepare("UPDATE plat SET 
+                libelle=:libelle, 
+                description=:description, 
+                prix=:prix, 
+                image=:image, 
+                id_categorie=:id_categorie, 
+                active=:active
+            WHERE id_plat=:id_plat");
+    $query->bindValue(":id_plat", $id_plat, PDO::PARAM_STR);
+    $query->bindValue(":libelle", $libelle, PDO::PARAM_STR);
+    $query->bindValue(":description", $description, PDO::PARAM_STR);
+    $query->bindValue(":prix", $prix, PDO::PARAM_STR);
+    $query->bindValue(":image", $image, PDO::PARAM_STR);
+    $query->bindValue(":id_categorie", $id_categorie, PDO::PARAM_STR);
+    $query->bindValue(":active", $active, PDO::PARAM_STR);
+    
+    $query->execute();
+    $query->closeCursor();
+
 }
 
 //------------------------------ COMMANDE ------------------------------//

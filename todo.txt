@@ -48,3 +48,14 @@ Requêtes SQL propre avec prepare au lieu des concaténations
 0.12 - Création script modif et delete user
 
 0.13 - Create/Delete/Update Commande
+
+0.14 - Create/Update Plat
+
+Update avec gestion de fichier (à finir et intégrer sur les autres pages)
+
+
+
+*Ajouter des Main sur toutes les pages admin
+*Mise en forme dashboard
+*Controle formulaires
+*Sortir les h2 des form sur les pages modif delete add + center

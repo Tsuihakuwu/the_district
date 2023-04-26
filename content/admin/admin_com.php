@@ -2,7 +2,7 @@
     require_once 'dao.php';
     $result = a_display_com();
 
-    echo '';
+    echo '<div class="container mt-4">';
     echo '<div class="text-center"><h2>Liste des commandes</h2><a href="/?page=admin&gest=com_create" class="btn btn-primary btn-sm">Ajouter une commande</a></div>
     <table class="table">';
     echo '<table class="table table-bordered rounded m-3 mnb">';
@@ -28,3 +28,5 @@
       echo '</tr>';
     }
     echo '</tbody></table>';
+    echo '</div>';
+?>

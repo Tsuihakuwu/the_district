@@ -30,6 +30,7 @@
                 else {
                     header("Location:index.php");
                 }
+                break;
             case "admin":
                 if(isset($_SESSION['login'])&&$_SESSION['login']!=""){
                     include("content/admin/admin_panel.php");
@@ -64,6 +65,15 @@
                                 break;
                             case "com_delete":
                                 include("content/admin/delete_command_form.php");
+                                break;
+                            case "plat_create":
+                                include("content/admin/create_plat_form.php");
+                                break;
+                            case "plat_mod":
+                                include("content/admin/update_plat_form.php");
+                                break;
+                            case "plat_delete":
+                                include("content/admin/delete_plat_form.php");
                                 break;
                         }
                     }

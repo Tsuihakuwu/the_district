@@ -1,18 +1,15 @@
 <?php
 require_once('../../session.php');
-require_once('../../db.php');
 require_once('../../dao.php');
 
-$prix_plat = detail_cat($_POST['id_plat']);
+$prix_plat = detail_cat2($_POST['id_plat']);
 
-if(isset($_POST['submit'])) {
-
-    
-    echo 'submit ok<br>';
+if(isset($_POST['submit'])) {    
+  echo 'submit ok<br>';
   // Get input data
   $id_plat = $_POST['id_plat'];
   $quantite = $_POST['quantite'];
-  $total = ($quantite*$prix_plat->prix);
+  $total = ($quantite * $prix_plat->prix);
   $date_commande = date("Y-m-d H:i:s");
   $nom_client = $_POST['nom_client'];
   $telephone_client = $_POST['telephone_client'];
