@@ -143,6 +143,17 @@ function user_co($user){
 
 //------------------------------ CATEGORIE ------------------------------//
 
+//CREATE
+function create_cat($lib,$img){
+    $active = "Yes";
+    $db = connexionBase();
+    $query = $db->prepare('INSERT INTO categorie (libelle,image,active) VALUES (?,?,?);');
+    $query->execute([$lib,$img,$active]);
+    $query->closeCursor();
+    return true;  
+}
+
+//READ ALL
 function a_display_cat(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM categorie');
@@ -151,6 +162,43 @@ function a_display_cat(){
     $query->closeCursor();
     return $tab;
 }
+
+//READ ONE WITH ID PARAMETER
+function o_display_cat($id){
+    $db = connexionBase();
+    $query = $db->prepare('SELECT * FROM categorie WHERE id_categorie = ?;');
+    $query->execute(array($id));
+    $tab = $query->fetch(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+//UPDATE
+function update_cat($id_categorie,$libelle,$img){
+    $active = "Yes";
+    $db = connexionBase();
+    $query = $db->prepare("UPDATE categorie SET 
+                libelle=:libelle, 
+                image=:image, 
+                active=:active
+            WHERE id_categorie=:id_categorie");
+    $query->bindValue(":libelle", $libelle, PDO::PARAM_STR);
+    $query->bindValue(":image", $img, PDO::PARAM_STR);
+    $query->bindValue(":active", $active, PDO::PARAM_STR);
+    $query->bindValue(":id_categorie", $id_categorie, PDO::PARAM_STR); 
+    $query->execute();
+    $query->closeCursor();
+}
+
+//DELETE
+function delete_cat($id){
+    $db = connexionBase();
+    $query = $db->prepare('DELETE FROM categorie WHERE id_categorie = ?');
+    $query->execute(array($id));
+    $query->closeCursor();
+    return true;
+}
+
 
 //------------------------------ PLAT ------------------------------//
 
@@ -184,7 +232,7 @@ function o_display_plat($id){
     return $tab;
 }
 
-//UPDATE WITH FILE CONTROL AND MOVE SUPPORT
+//UPDATE
 function update_plat($id_plat,$libelle, $description, $prix, $image,$id_categorie){
     $active = "Yes";
     $db = connexionBase();
@@ -207,6 +255,15 @@ function update_plat($id_plat,$libelle, $description, $prix, $image,$id_categori
     $query->execute();
     $query->closeCursor();
 
+}
+
+//DELETE
+function delete_plat($id){
+    $db = connexionBase();
+    $query = $db->prepare('DELETE FROM plat WHERE id_plat = ?');
+    $query->execute(array($id));
+    $query->closeCursor();
+    return true;
 }
 
 //------------------------------ COMMANDE ------------------------------//

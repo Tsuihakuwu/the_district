@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categorie_id = $_REQUEST['categorie_id'];
     $photo_plat = $_FILES['image_plat']['name'];
 
-    if (!empty($photo_plat)) {
+    if (empty($photo_plat)) {
         $photo_plat = $_POST['old_plat_img'];
     }
 
@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         update_plat($id_plat,$nom_plat,$description_plat,$prix_plat,$photo_plat,$categorie_id);
 
         if (!empty($photo_plat)) {
-            $uploadPath = "/asset/img/food/";
+            $uploadPath = "../../asset/img/food/";
             $fileTemp = $_FILES['image_plat']['tmp_name'];
             $file = $_FILES['image_plat']['name'];
             move_uploaded_file($fileTemp, $uploadPath.$file);
         }
 
-        // header("Location:/?page=admin&gest=plat");
+        header("Location:/?page=admin&gest=plat");
 
         exit;
     } catch (PDOException $e) {
@@ -36,11 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if (!isset($_REQUEST['id_plat'])) {
-    // header("Location: display_plat.php");
+    header("Location:/?page=admin&gest=plat");
     exit;
 }
 
-$id_plat = $_REQUEST['id_plat'];
-$plat = o_display_plat($id_plat);
-$categorie_list = a_display_cat();
 ?>

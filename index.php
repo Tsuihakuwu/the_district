@@ -75,6 +75,15 @@
                             case "plat_delete":
                                 include("content/admin/delete_plat_form.php");
                                 break;
+                            case "cat_create":
+                                include("content/admin/create_cat_form.php");
+                                break;
+                            case "cat_mod":
+                                include("content/admin/update_cat_form.php");
+                                break;
+                            case "cat_delete":
+                                include("content/admin/delete_cat_form.php");
+                                break;
                         }
                     }
                 }

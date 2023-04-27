@@ -51,11 +51,12 @@ Requêtes SQL propre avec prepare au lieu des concaténations
 
 0.14 - Create/Update Plat
 
-Update avec gestion de fichier (à finir et intégrer sur les autres pages)
+Update avec gestion de fichier (à intégrer sur les autres pages)
 
+0.15 - Delete Plat / CRUD Catégorie
 
+Ajoute de Main sur toutes les pages admin
+Mise en forme dashboard (50)
 
-*Ajouter des Main sur toutes les pages admin
-*Mise en forme dashboard
 *Controle formulaires
 *Sortir les h2 des form sur les pages modif delete add + center

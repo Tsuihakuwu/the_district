@@ -64,13 +64,16 @@ a:hover{
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-    background-color: #970748d8;
+    background-color: #440320e1;
     color: aliceblue;
     margin:1rem;
 }
+h5 {
+    color: aliceblue;
+}
 
 .card {
-    background-color: #970748d8;
+    background-color: #440320e1;
 }
 
 .imgof {

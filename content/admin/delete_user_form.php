@@ -2,12 +2,14 @@
 $user = o_display_usr($_REQUEST['id']);
 ?>
 
-<div class="container mt-5">
-    <h1>Confirmation de suppression</h1>
-    <p>Êtes-vous sûr de vouloir supprimer l'utilisateur <?= $user->nom ?> <?= $user->prenom ?> ? Cette action est irréversible.</p>
-    <form method="post" action="/content/admin/delete_user_script.php">
-        <input type="hidden" name="id_utilisateur" value="<?= $user->id_utilisateur ?>">
-        <button type="submit" class="btn btn-danger">Supprimer</button>
-        <a href="?page=admin&gest=usr" class="btn btn-secondary">Annuler</a>
-    </form>
-</div>
+<main>
+    <div class="container mt-5">
+        <h1>Confirmation de suppression</h1>
+        <p>Êtes-vous sûr de vouloir supprimer l'utilisateur <?= $user->nom ?> <?= $user->prenom ?> ? Cette action est irréversible.</p>
+        <form method="post" action="/content/admin/delete_user_script.php">
+            <input type="hidden" name="id_utilisateur" value="<?= $user->id_utilisateur ?>">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            <a href="?page=admin&gest=usr" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</main>
