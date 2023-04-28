@@ -2,8 +2,8 @@
 
 <?php if (isset($_SESSION['login'])) : ?>
     <main>
-        <h1 class="text-center">Panneau d'administration</h1>
-        <hr class="mt-0 mb-0 w-75">
+        <h1 class="text-center my-5">Panneau d'administration</h1>
+        <hr>
         <div class="d-flex row mt-5 mb-5 rounded mnb">
             <ul class="navbar-nav ms-md-auto me-md-5">
                 <li class="nav-item mx-4 d-flex justify-content-center">
@@ -21,5 +21,4 @@
             </ul>
         </div>
     </main>
-<?php else : header("Location:/index.php");
-endif; ?>
+<?php else : header("Location:/index.php"); endif; ?>

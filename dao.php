@@ -270,7 +270,7 @@ function delete_plat($id){
 
 //CREATE
 function create_command($id_plat, $quantite, $date_commande, $total,$nom_client, $telephone_client, $email_client, $adresse_client){
-    $etat="active";
+    $etat="En préparation";
     $db = connexionBase();
     $query = $db->prepare('INSERT INTO commande (id_plat, quantite, date_commande, total, nom_client, telephone_client, email_client, adresse_client, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
     $query->execute([$id_plat, $quantite, $date_commande, $total, $nom_client, $telephone_client, $email_client, $adresse_client, $etat]);

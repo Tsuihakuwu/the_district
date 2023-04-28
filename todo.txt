@@ -55,8 +55,8 @@ Update avec gestion de fichier (à intégrer sur les autres pages)
 
 0.15 - Delete Plat / CRUD Catégorie
 
-Ajoute de Main sur toutes les pages admin
-Mise en forme dashboard (50)
+Ajout de Main sur toutes les pages admin
+
+0.16 - Mise en forme dashboard (25)
 
 *Controle formulaires
-*Sortir les h2 des form sur les pages modif delete add + center

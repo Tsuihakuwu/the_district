@@ -3,7 +3,7 @@ require_once 'dao.php';
 $result = a_display_usr();
 ?>
 <main>
-    <div class="container mt-4">'
+    <div class="container">
         <div class="text-center">
             <h2>Liste des utilisateurs</h2>
             <a href="/?page=admin&gest=user_create" class="btn btn-light btn-sm text-black">Créer un utilisateur</a>

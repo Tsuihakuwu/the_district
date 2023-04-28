@@ -4,7 +4,7 @@ $result = a_display_com();
 
 ?>
 <main>
-  <div class="container mt-4">
+  <div class="container">
     <div class="text-center">
       <h2>Liste des commandes</h2><a href="/?page=admin&gest=com_create" class="btn btn-light btn-sm text-black">Ajouter une commande</a>
     </div>
