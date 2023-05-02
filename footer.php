@@ -1,6 +1,6 @@
 <footer class="footer mt-auto rounded mnb">
     <ul class="justify-content-center row mb-0 mt-2 px-0">
-        <div class="col-4 row justify-content-center">
+        <div class="col-7 col-md-4 row justify-content-center">
             <li class="list-group-item bg-transparent border-0 col-2 col-md-1 mx-3 p-2">
                 <a href="#"><img class="img-fluid" src="asset/img/socials/facebook-svgrepo-com.svg" alt="socials_facebook"></a>
             </li>

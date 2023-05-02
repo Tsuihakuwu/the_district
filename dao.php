@@ -28,7 +28,7 @@ function disp_cat(){
 //------------------------------ DISPLAY MOST POPULAR PLAT LIMIT 3 ------------------------------//
 
 function mp_plat(){
-    $db = connexionBase();        
+    $db = connexionBase();
     $query = $db->query('SELECT COUNT(*) AS nbr_vente, plat.libelle, plat.image, plat.id_plat, plat.prix 
     FROM commande
     JOIN plat ON plat.id_plat = commande.id_plat
