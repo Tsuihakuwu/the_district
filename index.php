@@ -20,6 +20,12 @@
             case "contact":
                 include("content/user/contact.php");
                 break;
+            case "cgu":
+                include("content/user/cgu.php");
+                break;
+            case "mention":
+                include("content/user/ml.php");
+                break;
             case "detail":
                 if(isset($_REQUEST["p_id"])){
                     include("content/user/d_plat.php");

@@ -222,6 +222,17 @@ function a_display_plat(){
     return $tab;
 }
 
+//JOIN FOR CAT DISPLAY IN PLAT
+function j_plat_cat(){
+    $db = connexionBase();
+    $query = $db->query('SELECT id_plat, plat.libelle, description, prix, plat.image, categorie.libelle AS libcat, plat.active FROM plat
+    JOIN categorie ON plat.id_categorie = categorie.id_categorie ORDER BY libcat;');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
 //READ ONE WITH ID PARAMETER
 function o_display_plat($id){
     $db = connexionBase();
@@ -282,6 +293,18 @@ function create_command($id_plat, $quantite, $date_commande, $total,$nom_client,
 function a_display_com(){
     $db = connexionBase();
     $query = $db->query('SELECT * FROM commande');
+    $query->execute();
+    $tab = $query->fetchAll(PDO::FETCH_OBJ);
+    $query->closeCursor();
+    return $tab;
+}
+
+//JOIN FOR PLAT DISPLAY IN COM
+function j_plat_com(){
+    $db = connexionBase();
+    $query = $db->query('SELECT id_commande, commande.id_plat, quantite, total, date_commande, etat, nom_client, telephone_client, email_client, adresse_client, plat.libelle AS libplat FROM commande
+    JOIN plat ON commande.id_plat = plat.id_plat
+    ORDER BY date_commande');
     $query->execute();
     $tab = $query->fetchAll(PDO::FETCH_OBJ);
     $query->closeCursor();

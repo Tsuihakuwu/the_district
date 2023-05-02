@@ -1,9 +1,10 @@
 <?php if (session_status() !== PHP_SESSION_ACTIVE) session_start(); ?>
 
 <?php if (isset($_SESSION['login'])) : ?>
-    <main>
+    <nav>
+    <hr class="w-75 mx-auto mt-5 mb-3">
         <h1 class="text-center my-5">Panneau d'administration</h1>
-        <hr>
+        <hr class="w-75 mx-auto mt-0 mb-3">
         <div class="d-flex row mt-5 mb-5 rounded mnb">
             <ul class="navbar-nav ms-md-auto me-md-5">
                 <li class="nav-item mx-4 d-flex justify-content-center">
@@ -20,5 +21,5 @@
                 </li>
             </ul>
         </div>
-    </main>
+    </nav>
 <?php else : header("Location:/index.php"); endif; ?>
