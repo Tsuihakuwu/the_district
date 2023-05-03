@@ -26,6 +26,9 @@
             case "mention":
                 include("content/user/ml.php");
                 break;
+            case "commande":
+                include("content/user/order_form.php");
+                break;
             case "detail":
                 if(isset($_REQUEST["p_id"])){
                     include("content/user/d_plat.php");

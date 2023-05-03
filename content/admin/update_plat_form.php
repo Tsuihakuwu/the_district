@@ -35,7 +35,7 @@ $plat = o_display_plat($_GET['id_plat'])
       </div>
       <input type="hidden" name="id_plat" value="<?= $plat->id_plat ?>">
       <input type="hidden" name="old_plat_img" value="<?= $plat->image ?>">
-      <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
+      <button type="submit" class="btn btn-light btn-sm text-black mb-3" name="submit">Modifier</button>
     </form>
   </div>
 </main>

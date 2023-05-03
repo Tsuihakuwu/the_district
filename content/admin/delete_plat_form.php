@@ -20,8 +20,8 @@ if (!$plat) {
 
         <form method="post" action="/content/admin/delete_plat_script.php">
             <input type="hidden" name="id_plat" value="<?php echo $plat->id_plat; ?>">
-            <button class="btn btn-danger" type="submit" name="delete">Supprimer</button>
-            <a class="btn btn-secondary" href="?page=admin&gest=plat">Annuler</a>
+            <button class="btn btn-light btn-sm text-black mb-3" type="submit" name="delete">Supprimer</button>
+            <a class="btn btn-light btn-sm text-black mb-3" href="?page=admin&gest=plat">Annuler</a>
         </form>
     </div>
 </main>

@@ -48,8 +48,8 @@ $commande = o_display_com($_GET['id_com']);
         <label for="adresse_client">Adresse du client:</label>
         <input type="text" class="form-control" id="adresse_client" name="adresse_client" value="<?= $commande->adresse_client ?>">
       </div>
-      <button type="submit" class="btn btn-primary mr-2">Modifier</button>
-      <a href="/?page=admin&gest=com" class="btn btn-secondary">Annuler</a>
+      <button type="submit" class="btn btn-light btn-sm text-black mb-3 mr-2">Modifier</button>
+      <a href="/?page=admin&gest=com" class="btn btn-light btn-sm text-black mb-3">Annuler</a>
     </form>
   </div>
 </main>

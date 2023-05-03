@@ -22,10 +22,10 @@
                     <li class="nav-item mx-4">
                         <a class="nav-link text-white" href="index.php?page=plat">Plats</a>
                     </li>
-                    <?php if (!isset($_SESSION['login'])) : ?>
-                        <li class="nav-item mx-4 mb-4 mb-md-0">
+                    <li class="nav-item mx-4 mb-4 mb-md-0">
                             <a class="nav-link text-white" href="index.php?page=contact">Contact</a>
-                        </li>
+                    </li>
+                    <?php if (!isset($_SESSION['login'])) : ?>
                         <li class="nav-item mx-4 mb-4 mb-md-0">
                             <a class="nav-link text-white" href="index.php?page=c">Connexion</a>
                         </li>

@@ -20,7 +20,7 @@ $user = o_display_usr($_GET['id']);
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" value="<?= $user->email ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary">Modifier</button>
+            <button type="submit" class="btn btn-light btn-sm text-black mb-3>Modifier</button>
         </form>
     </div>
 </main>
