@@ -1,0 +1,17 @@
+{
+    "name": "stagiaire/the_district",
+    "autoload": {
+        "psr-4": {
+            "Stagiaire\\TheDistrict\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matthias",
+            "email": "matthias.sergeant@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

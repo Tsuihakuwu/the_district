@@ -411,4 +411,26 @@ function delete_user($id){
     return true;
 }
 
+//------------------------------ USER COMMANDE ------------------------------//
+
+function new_order($plat,$qtt,$tot,$nom,$tel,$email,$adr){
+    $db = connexionBase();
+    $etat = "En préparation";
+    $date = date('Y-m-d H:i:s');
+    $query = $db->prepare('INSERT INTO commande (id_plat,quantite,total,date_commande,etat,nom_client,telephone_client,email_client,adresse_client)
+    VALUES (:plat,:qtt,:tot,:dt,:etat,:nom,:tel,:email,:adr);');
+    $query->bindValue(":plat", $plat, PDO::PARAM_STR);
+    $query->bindValue(":qtt", $qtt, PDO::PARAM_STR);
+    $query->bindValue(":tot", $tot, PDO::PARAM_STR);
+    $query->bindValue(":dt", $date, PDO::PARAM_STR);
+    $query->bindValue(":etat", $etat, PDO::PARAM_STR);
+    $query->bindValue(":nom", $nom, PDO::PARAM_STR);
+    $query->bindValue(":tel", $tel, PDO::PARAM_STR);
+    $query->bindValue(":email", $email, PDO::PARAM_STR);
+    $query->bindValue(":adr", $adr, PDO::PARAM_STR);
+    $query->execute();
+    $query->closeCursor();
+    return true;
+}
+
 ?>

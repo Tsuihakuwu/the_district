@@ -29,6 +29,9 @@
             case "commande":
                 include("content/user/order_form.php");
                 break;
+            case "order_confirm":
+                include("content/user/order_confirm.php");
+                break;
             case "detail":
                 if(isset($_REQUEST["p_id"])){
                     include("content/user/d_plat.php");
