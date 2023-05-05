@@ -65,4 +65,6 @@ Ajout de Main sur toutes les pages admin
 
 0.18 - Formulaire commande
 
-*Controle formulaires
+0.19 - Installation PHPMailer
+
+1.0 - Version Finale avant POO

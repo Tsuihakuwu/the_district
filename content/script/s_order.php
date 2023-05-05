@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once 'vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 // include database and session files
 require_once '../../dao.php';
@@ -46,18 +46,17 @@ if (isset($_POST['submit'])) {
   $mail->Port       = 1025;                                   
 
   // Expéditeur du mail - adresse mail + nom (facultatif)
-  $mail->setFrom('from@thedistrict.com', 'The District Company');
+  $mail->setFrom('matthias@thedistrict.com', 'The District');
 
   // Destinataire(s) - adresse et nom (facultatif)
-  $mail->addAddress("client1@example.com", "Mr Client1");
-  $mail->addAddress("client2@example.com"); 
+  $mail->addAddress($email,$nom);
 
   //Adresse de reply (facultatif)
-  $mail->addReplyTo("reply@thedistrict.com", "Reply");
+  $mail->addReplyTo("matthias@thedistrict.com", "Reply");
 
   //CC & BCC
-  $mail->addCC("cc@example.com");
-  $mail->addBCC("bcc@example.com");
+//   $mail->addCC("cc@example.com");
+//   $mail->addBCC("bcc@example.com");
 
   // On précise si l'on veut envoyer un email sous format HTML 
   $mail->isHTML(true);
@@ -66,10 +65,37 @@ if (isset($_POST['submit'])) {
   // $mail->addAttachment('/path/to/file.pdf');
 
   // Sujet du mail
-  $mail->Subject = 'Test PHPMailer';
+  $mail->Subject = 'Votre commande The District';
+
+  $message = '';
+  //HEADER
+  $message .= '<!DOCTYPE html>';
+  $message .= '<html lang="fr"><head><meta charset="utf-8"><title>Votre commande The District</title>';
+  //META
+  $message .= '<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">';
+  //CSS
+  $message .= '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
+  //BODY
+  $message .= '</head><body>';
+  
+  $message .= '<h1 class="text-center">Votre commande The District</h1>';
+  
+  $message .= '<p>Bonjour '.$nom.' et merci de votre commande !</p>';
+  $message .= '<p>Voici un récapitulatif :</p>';
+  $message .= '<table><thead><th>Produit</th><th>Quantité</th><th>Total</th><thead>';
+  $message .= '<tbody><td>'.$selected_plat->prix.'</td><td>'.$quantite.'</td><td>'.$total.'</td></tbody>';
+  $message .= '</table>';
+  
+  $message .= '<p>Votre adresse de livraison :</p>';
+  $message .= '<p>'.$adresse.'</p>';
+  
+  $message .= '<p>En esperant vous revoir bientot sur notre site,</p>';
+  $message .= '<img src="/asset/img/the_district_brand/logo_transparent.png" alt="Logo The District">';
+  
+  $message .= '</body></html>';
 
   // Corps du message
-  $mail->Body = "On teste l'envoi de mails avec PHPMailer";
+  $mail->Body = $message;
 
   // On envoie le mail dans un block try/catch pour capturer les éventuelles erreurs
   if ($mail){
