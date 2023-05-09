@@ -68,3 +68,5 @@ Ajout de Main sur toutes les pages admin
 0.19 - Installation PHPMailer
 
 1.0 - Version Finale avant POO
+
+1.1 - écriture classes pour préparation POO
