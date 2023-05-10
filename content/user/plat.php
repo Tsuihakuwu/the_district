@@ -4,6 +4,8 @@ include("dao.php");
 
 $tab = all_plat();
 
+// var_dump($tab);
+
 ?>
 <main>
     <h3 class="d-flex justify-content-center mt-3">Tout nos plats</h3>

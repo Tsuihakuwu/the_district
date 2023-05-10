@@ -1,6 +1,10 @@
 <?php
 
 include_once("db.php");
+include_once('_classes/categorie.class.php');
+include_once('_classes/commande.class.php');
+include_once('_classes/plat.class.php');
+include_once('_classes/user.class.php');
 
 //------------------------------ FRONT ------------------------------//
 
